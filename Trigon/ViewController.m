@@ -23,8 +23,7 @@ uint64_t trigon(void);
     label.numberOfLines = 2;
     
     uint64_t result = trigon();
-    label.text = !result ? @"Exploit success!" : [NSString stringWithFormat:@"Exploit failed.\nResult: 0x%llX.", result];
-    
+    label.text = !result ? [NSString stringWithFormat:@"Exploit success!\nUID: %u", getuid()] : [NSString stringWithFormat:@"Exploit failed.\nResult: 0x%llX.", result];
     [self.view addSubview:label];
 }
 
