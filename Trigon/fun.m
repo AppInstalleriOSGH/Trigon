@@ -110,7 +110,7 @@ void print_ents(void) {
     uint32_t hdr[2];
     csops(getpid(), 7, hdr, sizeof(hdr));
     uint32_t len = OSSwapHostToBigInt32(hdr[1]);
-    void* buf = malloc(len + 1);
+    void* buf = malloc(len);
     csops(getpid(), 7, buf, len);
     printf("ents: %s\n", (char*)(buf + 8));
     free(buf);
